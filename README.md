@@ -7,7 +7,8 @@ the master Thesis.
 To switch between templates go to the top of main.tex and change the document class options:
 
 * `paper` =  seminar paper
-* `bachelorthesis` = bachelor thesis 2
+* `reviewversion` = anonymized review version
+* `bachelorthesis` = bachelor thesis
 * `masterthesis` = master thesis
 
 To switch the language of the document go to the top of main.tex and change the document class options: 
