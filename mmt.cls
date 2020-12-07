@@ -54,6 +54,7 @@
 \newif\ifmmtpaper                     \mmtpaperfalse
 \newif\ifmmtmasterthesis              \mmtmasterthesisfalse
 \newif\ifmmtbachelorthesis            \mmtbachelorthesisfalse
+\newif\ifmmtreviewversion             \mmtreviewversionfalse
 \newif\ifmmtlanguagegerman            \mmtlanguagegermanfalse
 \newif\iftvcgsize                     \tvcgsizefalse
 
@@ -76,6 +77,13 @@
     \renewcommand{\mmt@columnmode}{onecolumn}%
     \mmt@doublespacedfalse%
     \mmtbachelorthesistrue
+    }
+    
+\DeclareOption{reviewversion}{%
+    \mmt@cameratrue%    
+    \renewcommand{\mmt@columnmode}{onecolumn}%
+    \mmt@doublespacedfalse%
+    \mmtreviewversiontrue
     }
 
 % 'journal' option

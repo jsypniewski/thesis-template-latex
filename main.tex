@@ -2,9 +2,10 @@
 % generated text is translated accordingly.
 % use \selectthesislanguage in body.tex to switch to default language
 
-\documentclass[ngerman, paper]{mmt} % use for BA1
-%\documentclass[ngerman, bachelorthesis]{mmt} % use for BA2
-%\documentclass[ngerman, masterthesis]{mmt} % use for Master thesis
+%\documentclass[ngerman, paper]{mmt} % use for seminar paper
+%\documentclass[ngerman, reviewversion]{mmt} % use for anonymized review version 
+%\documentclass[ngerman, bachelorthesis]{mmt} % use for Bachelor thesis
+\documentclass[ngerman, masterthesis]{mmt} % use for Master thesis
 
 \usepackage{mathptmx}
 \usepackage{graphicx}
@@ -135,8 +136,8 @@
 \pagenumbering{gobble}
 
  % group open
-\ifmmtpaper 
-\begingroup 
+\ifmmtpaper
+    \begingroup 
     % is required because paper template messes with sizes
     \fontsize{12}{18}\selectfont        
     \setlength{\parindent}{0pt}
@@ -144,23 +145,28 @@
     \sectionfont{\fontsize{14}{15}\selectfont}
 \fi
 
-    \input{title}        
+\ifmmtreviewversion\else
+    \input{title}       
+\fi
+
     \onecolumn           
     
     \pagenumbering{roman}
     
 \ifmmtpaper % does not need affidavit
-\else
-    \newpage
-    \input{affidavit}  % comment out for expose
+\else \ifmmtreviewversion
+      \else
+        \newpage
+        \input{affidavit}  % comment out for expose
+      \fi
 \fi
-
 % group closing
 \ifmmtpaper
 \endgroup
 \fi
 
-\ifmmtpaper\else  % paper does not need this stuff
+
+\ifmmtpaper \else \ifmmtreviewversion\else  % paper does not need this stuff
     
     \newpage
     \selectlanguage{ngerman}
@@ -190,6 +196,7 @@
     \lstlistoflistings
     \listoftables
     
+\fi
 \fi
 
 \mmtcolumnmode % switch back to column formatting of stylesheet
