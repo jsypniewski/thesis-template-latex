@@ -152,7 +152,9 @@
     \sectionfont{\fontsize{14}{15}\selectfont}
 \fi
 
-\ifmmtreviewversion\else
+\ifmmtreviewversion
+    \titlename
+\else
     \input{title}       
 \fi
 
@@ -173,7 +175,7 @@
 \fi
 
 
-\ifmmtpaper \else \ifmmtreviewversion\else  % paper does not need this stuff
+\ifmmtpaper \else  % paper does not need this stuff
     
     \newpage
     \selectlanguage{ngerman}
@@ -204,7 +206,7 @@
     \listoftables
     
 \fi
-\fi
+
 
 \mmtcolumnmode % switch back to column formatting of stylesheet
 
