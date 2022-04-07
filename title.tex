@@ -1,9 +1,9 @@
 \begin{titlepage}
 
 % check if second advisor exists
-\newcommand{\printsecondadvisor}[1]{%
+\newcommand{\printsecondassessor}[1]{%
   \ifcsname#1\endcsname%
-  \ifhcilanguagegerman ZweitbetreuerIn: \else Second Advisor: \fi \secondadvisor 
+  \ifhcilanguagegerman ZweitbetreuerIn: \else Second Advisor: \fi \secondassessor 
   \else%
     
   \fi%
@@ -25,21 +25,21 @@
     \hfill \includegraphics[height=1.5cm]{images/FHSLogo.jpg}
     
     \vspace*{2cm}
-    
     \Large{
-    \titlename
     
+    \titlename
+     
     \vspace*{1cm}
     
     \ifhcilanguagegerman
     Masterarbeit zur Erlangung des akademischen Grades
     \else
-    Master thesis in partial fulfilment of the requirements for\\ the degree of 
+    Master's thesis in partial fulfilment of the requirements for\\ the degree of 
     \fi
     
     \vspace*{0.5cm}
     
-    \textit{Master of Science}
+    {"Master of Science"}
     }
     
     
@@ -51,18 +51,22 @@
     
     {\normalsize
     \ifhcilanguagegerman
-    Vorgelegt am FH-Masterstudiengang MultiMediaTechnology, Fachhochschule Salzburg
+    Submitted to the Joint Master Programme on Human-Computer Interaction
+    \\Salzburg University of Applied Sciences
+    \\Paris-Lodron-University Salzburg
     \else
-    Submitted to the Master degree program MultiMediaTechnology, Salzburg University of Applied Sciences
+    Submitted to the Joint Master Programme on Human-Computer Interaction
+    \\Salzburg University of Applied Sciences
+    \\Paris-Lodron-University Salzburg
     \fi
     
     
     \vspace*{1cm}
     
     \ifhcilanguagegerman BetreuerIn: \else Advisor: \fi
-    \advisor
+    \supervisor
     \\    
-    \printsecondadvisor{secondadvisor}
+    \printsecondassessor{secondassessor}
     
     \vfill
     
