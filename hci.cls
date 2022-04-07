@@ -1,8 +1,8 @@
-% `mmt' LaTeX class.
+% `hci' LaTeX class.
 % - modifications by Markus Tatzgern 2016/10/18
-%   - adapted to needs of MMT (title page etc.)
-%   - based on mmt style of IEEE 
-% $Id: mmt.cls 11 2007-04-03 22:25:53Z jpeltier $
+%   - adapted to needs of hci (title page etc.)
+%   - based on hci style of IEEE 
+% $Id: hci.cls 11 2007-04-03 22:25:53Z jpeltier $
 % - modifications by Meghan Haley on 2006/07/20
 %   - manuscript received changed to 31 March for journal style
 % - modifications by Steven Bergner on 2006/06/28
@@ -18,10 +18,10 @@
 %   - copyrightspace enabled by default with opt. \nocopyrightspace switch
 %   - 'CR categories' now called 'Index Terms'
 %   - adjusted {sub|subsub|}section headline spacing
-%   - adjusted to mmt naming (from tcvg or acm)
+%   - adjusted to hci naming (from tcvg or acm)
 % - modification of the acmsiggraph.cls class
 % - modifications on 2004/04/06 by Torsten Moeller
-%    * many modifications to conform to mmt standard
+%    * many modifications to conform to hci standard
 %      - new heading style
 %      - new caption style
 %      - new reference style
@@ -42,109 +42,109 @@
 
 % ------------ identification --------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mmt}[2016/10/25 MultiMediaTechnology]
+\ProvidesClass{hci}[2016/10/25 MultiMediaTechnology]
 
 % ------------ initial code --------------
 
-\newif\ifmmt@camera
-\newif\ifmmt@preprint
-\newif\ifmmt@review
-\newif\ifmmt@doublespaced
-\newif\ifmmt@wide                    \mmt@widefalse
-\newif\ifmmtpaper                     \mmtpaperfalse
-\newif\ifmmtmasterthesis              \mmtmasterthesisfalse
-\newif\ifmmtbachelorthesis            \mmtbachelorthesisfalse
-\newif\ifmmtreviewversion             \mmtreviewversionfalse
-\newif\ifmmtlanguagegerman            \mmtlanguagegermanfalse
+\newif\ifhci@camera
+\newif\ifhci@preprint
+\newif\ifhci@review
+\newif\ifhci@doublespaced
+\newif\ifhci@wide                    \hci@widefalse
+\newif\ifhcipaper                     \hcipaperfalse
+\newif\ifhcimasterthesis              \hcimasterthesisfalse
+\newif\ifhcibachelorthesis            \hcibachelorthesisfalse
+\newif\ifhcireviewversion             \hcireviewversionfalse
+\newif\ifhcilanguagegerman            \hcilanguagegermanfalse
 \newif\iftvcgsize                     \tvcgsizefalse
 
-\newcommand{\mmt@columnmode}{}
-\newcommand{\mmt@pointsize}{}
+\newcommand{\hci@columnmode}{}
+\newcommand{\hci@pointsize}{}
 
 % ------------ declaration of options --------------
 
 % 'thesis' option
 
 \DeclareOption{masterthesis}{%
-    \mmt@cameratrue%    
-    \renewcommand{\mmt@columnmode}{onecolumn}%
-    \mmt@doublespacedfalse%
-    \mmtmasterthesistrue
+    \hci@cameratrue%    
+    \renewcommand{\hci@columnmode}{onecolumn}%
+    \hci@doublespacedfalse%
+    \hcimasterthesistrue
     }
     
 \DeclareOption{bachelorthesis}{%
-    \mmt@cameratrue%    
-    \renewcommand{\mmt@columnmode}{onecolumn}%
-    \mmt@doublespacedfalse%
-    \mmtbachelorthesistrue
+    \hci@cameratrue%    
+    \renewcommand{\hci@columnmode}{onecolumn}%
+    \hci@doublespacedfalse%
+    \hcibachelorthesistrue
     }
     
 \DeclareOption{reviewversion}{%
-    \mmt@cameratrue%    
-    \renewcommand{\mmt@columnmode}{onecolumn}%
-    \mmt@doublespacedfalse%
-    \mmtreviewversiontrue
+    \hci@cameratrue%    
+    \renewcommand{\hci@columnmode}{onecolumn}%
+    \hci@doublespacedfalse%
+    \hcireviewversiontrue
     }
 
 % 'journal' option
 \DeclareOption{paper}{%
-    \mmtpapertrue %
+    \hcipapertrue %
     %\@twosidetrue  \@mparswitchtrue %
     %\ExecuteOptions{tvcgpapersize}    
 }
 
 % language option ngerman
 \DeclareOption{ngerman}{%    
-    \mmtlanguagegermantrue
+    \hcilanguagegermantrue
     \PassOptionsToPackage{main=ngerman, english}{babel}
 }
     
 \DeclareOption{english}{%    
-    \mmtlanguagegermanfalse
+    \hcilanguagegermanfalse
     \PassOptionsToPackage{main=english, ngerman}{babel}
 }
     
 % 'cameraready' option.
 
 \DeclareOption{cameraready}{%
-    \mmt@cameratrue%
-    \mmt@preprintfalse%
-    \mmt@reviewfalse%
-    \renewcommand{\mmt@columnmode}{twocolumn}%
-    \mmt@doublespacedfalse%
-    \renewcommand{\mmt@pointsize}{9pt}}
+    \hci@cameratrue%
+    \hci@preprintfalse%
+    \hci@reviewfalse%
+    \renewcommand{\hci@columnmode}{twocolumn}%
+    \hci@doublespacedfalse%
+    \renewcommand{\hci@pointsize}{9pt}}
 
 % 'review' option.
 
 \DeclareOption{review}{%
-    \mmt@camerafalse%
-    \mmt@preprintfalse%
-    \mmt@reviewtrue%
-    \renewcommand{\mmt@columnmode}{twocolumn}%
-    \mmt@doublespacedfalse%
-    \renewcommand{\mmt@pointsize}{9pt}
+    \hci@camerafalse%
+    \hci@preprintfalse%
+    \hci@reviewtrue%
+    \renewcommand{\hci@columnmode}{twocolumn}%
+    \hci@doublespacedfalse%
+    \renewcommand{\hci@pointsize}{9pt}
     }
 
 % 'widereview' option.
 
 \DeclareOption{widereview}{%
-    \mmt@camerafalse%
-    \mmt@preprintfalse%
-    \mmt@reviewtrue%
-    \renewcommand{\mmt@columnmode}{onecolumn}%
-    \mmt@widetrue%
-    \mmt@doublespacedtrue%
-    \renewcommand{\mmt@pointsize}{12pt}}
+    \hci@camerafalse%
+    \hci@preprintfalse%
+    \hci@reviewtrue%
+    \renewcommand{\hci@columnmode}{onecolumn}%
+    \hci@widetrue%
+    \hci@doublespacedtrue%
+    \renewcommand{\hci@pointsize}{12pt}}
 
 % 'preprint' option.
 
 \DeclareOption{preprint}{%
-    \mmt@camerafalse%
-    \mmt@preprinttrue%
-    \mmt@reviewfalse%
-    \renewcommand{\mmt@columnmode}{twocolumn}%
-    \mmt@doublespacedfalse%
-    \renewcommand{\mmt@pointsize}{9pt}}
+    \hci@camerafalse%
+    \hci@preprinttrue%
+    \hci@reviewfalse%
+    \renewcommand{\hci@columnmode}{twocolumn}%
+    \hci@doublespacedfalse%
+    \renewcommand{\hci@pointsize}{9pt}}
 
 
 %% the following code has partly been adapted from egpubl.cls
@@ -155,10 +155,10 @@
 %  \pdftrue 
 %\fi 
 
-\newcommand{\mmtinsertpkg}{}
+\newcommand{\hciinsertpkg}{}
 \DeclareOption{electronic}{%
  \ifpdf 
-  \renewcommand{\mmtinsertpkg}{%
+  \renewcommand{\hciinsertpkg}{%
    \usepackage[pdftex,
     pagebackref=true,
     colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue,
@@ -167,10 +167,10 @@
     pdftitle={\@title},
     %pdfauthor={\@shortauthor},
     %pdfsubject={\@title},
-    pdfkeywords={\mmt@keywords}]{hyperref}
+    pdfkeywords={\hci@keywords}]{hyperref}
   }
  \else 
-  \renewcommand{\mmtinsertpkg}{%
+  \renewcommand{\hciinsertpkg}{%
    \usepackage[dvips,
     pagebackref=true,
     colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue,
@@ -179,7 +179,7 @@
     %pdftitle={\@title},
     %pdfauthor={authorinfo},
     %pdfsubject={\@title},
-    %pdfkeywords={\mmt@keywords}
+    %pdfkeywords={\hci@keywords}
    ]{hyperref}
   }
  \fi
@@ -192,87 +192,87 @@
 
 % Here's a warning command for use just below.
 
-\newcommand{\mmt@optwarning}[1]{%
-    \ifmmt@camera
-        \ClassWarningNoLine{mmt}%
+\newcommand{\hci@optwarning}[1]{%
+    \ifhci@camera
+        \ClassWarningNoLine{hci}%
             {#1 option used in camera-ready mode.\MessageBreak
              This violates submission specifications}
     \fi
 }
 
 % The 'onecolumn' option doesn't work in 'cameraready' mode.
-% --> warning mmt@optwarning
+% --> warning hci@optwarning
 
 \DeclareOption{onecolumn}{%
-    \mmt@optwarning{onecolumn}
-    \renewcommand{\mmt@columnmode}{onecolumn}    
+    \hci@optwarning{onecolumn}
+    \renewcommand{\hci@columnmode}{onecolumn}    
 }
 
 % The 'twocolumn' option works in 'cameraready' mode.
 
 \DeclareOption{twocolumn}{%
-    \renewcommand{\mmt@columnmode}{twocolumn}
+    \renewcommand{\hci@columnmode}{twocolumn}
     }
 
 % Only the '9pt' size works in 'cameraready' mode.
 
 \DeclareOption{9pt}{%
-    \renewcommand{\mmt@pointsize}{9pt}}
+    \renewcommand{\hci@pointsize}{9pt}}
 \DeclareOption{10pt}{%
-    \mmt@optwarning{10pt}
-    \renewcommand{\mmt@pointsize}{10pt}}
+    \hci@optwarning{10pt}
+    \renewcommand{\hci@pointsize}{10pt}}
 \DeclareOption{11pt}{%
-    \mmt@optwarning{11pt}
-    \renewcommand{\mmt@pointsize}{11pt}}
+    \hci@optwarning{11pt}
+    \renewcommand{\hci@pointsize}{11pt}}
 \DeclareOption{12pt}{%
-    \mmt@optwarning{12pt}
-    \renewcommand{\mmt@pointsize}{12pt}}
+    \hci@optwarning{12pt}
+    \renewcommand{\hci@pointsize}{12pt}}
 
 % The 'singlespace' option works in 'cameraready' mode.
 
 \DeclareOption{singlespace}{%
-    \mmt@doublespacedfalse}
+    \hci@doublespacedfalse}
 
 % The 'doublespace' option does not work in 'cameraready' mode.
 
 \DeclareOption{doublespace}{%
-    \mmt@optwarning{doublespace}
-    \mmt@doublespacedtrue}
+    \hci@optwarning{doublespace}
+    \hci@doublespacedtrue}
 
 % No 'titlepage' option in 'cameraready' mode.
 
 \DeclareOption{titlepage}{%
     \OptionNotUsed%
-    \ClassWarningNoLine{mmt}{titlepage option not allowed}}
+    \ClassWarningNoLine{hci}{titlepage option not allowed}}
 
 % No 'landscape' mode in 'cameraready' mode, either.
 
 \DeclareOption{landscape}{%
     \OptionNotUsed%
-    \ClassWarningNoLine{mmt}{landscape option not allowed}}
+    \ClassWarningNoLine{hci}{landscape option not allowed}}
 
 % Pass everything else to the 'article' class, upon which this is based.
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
-\PassOptionsToClass{\mmt@columnmode}{article}
+\PassOptionsToClass{\hci@columnmode}{article}
 \PassOptionsToClass{a4paper}{article}
-%\ifmmtpaper
+%\ifhcipaper
 \PassOptionsToClass{oneside}{article}
 %\else
 %\PassOptionsToClass{twoside}{article}
 %\fi
-\ifdim\mmt@pointsize>9pt
-    \PassOptionsToClass{\mmt@pointsize}{article}
+\ifdim\hci@pointsize>9pt
+    \PassOptionsToClass{\hci@pointsize}{article}
 \fi
-\ifmmtpaper\else
+\ifhcipaper\else
     \PassOptionsToClass{12pt}{article}
 \fi
 
 % ------------ package loading --------------
 
 \RequirePackage{babel}
-\ifmmtlanguagegerman
+\ifhcilanguagegerman
     \newcommand{\selectthesislanguage}{\selectlanguage{ngerman}}  
 \else
     \newcommand{\selectthesislanguage}{\selectlanguage{english}}  
@@ -284,13 +284,13 @@
 \newcommand{\firstsectiontxt}{}
 \newcommand{\firstsection}[1]{\renewcommand{\firstsectiontxt}{#1}}
 
-\newcommand{\ifcamera}[1]{\ifmmt@camera #1 \fi}
-\newcommand{\ifreview}[1]{\ifmmt@review #1 \fi}
-\newcommand{\ifcameraelse}[2]{\ifmmt@camera #1 \else #2 \fi}
-\newcommand{\ifreviewelse}[2]{\ifmmt@review #1 \else #2 \fi}
+\newcommand{\ifcamera}[1]{\ifhci@camera #1 \fi}
+\newcommand{\ifreview}[1]{\ifhci@review #1 \fi}
+\newcommand{\ifcameraelse}[2]{\ifhci@camera #1 \else #2 \fi}
+\newcommand{\ifreviewelse}[2]{\ifhci@review #1 \else #2 \fi}
 
 % conference template margins
-\ifmmtpaper
+\ifhcipaper
 \renewcommand{\figurename}{Fig.}
 
 %%\setlength{\parindent}{1em}
@@ -304,10 +304,10 @@
 % no page numbers - they are added in production
 % \pagestyle{plain}
 
-\newcommand{\mmt@abstxt}{}
+\newcommand{\hci@abstxt}{}
 \let\origabstract\abstract
 \let\endorigabstract\endabstract
-\renewcommand{\abstract}[1]{\renewcommand{\mmt@abstxt}{#1}}
+\renewcommand{\abstract}[1]{\renewcommand{\hci@abstxt}{#1}}
 
 
 % \newenvironment{localsize}[1]
@@ -326,9 +326,9 @@
 
 
 %%% huge block of formatting follows that is only relevant for paper formatting.
-\ifmmtpaper % formatting only for paper format
+\ifhcipaper % formatting only for paper format
 
-\newcommand{\mmt@setninepoint}{
+\newcommand{\hci@setninepoint}{
     \renewcommand\normalsize{%
         \@setfontsize\normalsize\@ixpt\@xpt
         \abovedisplayskip 9\p@ \@plus2\p@ \@minus4\p@
@@ -365,52 +365,52 @@
     \renewcommand\Huge{\@setfontsize\Huge\@xxpt{25}}
     \selectfont
 }
-\ifdim\mmt@pointsize=9pt
-    \mmt@setninepoint
+\ifdim\hci@pointsize=9pt
+    \hci@setninepoint
 \fi
 
-\newcommand{\mmt@sectionfont}{}
-\newcommand{\sectionfont}[1]{\renewcommand{\mmt@sectionfont}{#1}}
+\newcommand{\hci@sectionfont}{}
+\newcommand{\sectionfont}[1]{\renewcommand{\hci@sectionfont}{#1}}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
                 {-2ex \@plus -1ex \@minus -.2ex}%
                 {0.8ex \@plus .2ex}%
-                {\reset@font\normalsize\sffamily\bfseries\scshape\mmt@sectionfont}}
+                {\reset@font\normalsize\sffamily\bfseries\scshape\hci@sectionfont}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
                 {-1.8ex\@plus -1ex \@minus -.2ex}%
                 {0.8ex \@plus .2ex}%
-                {\reset@font\normalsize\sffamily\bfseries\mmt@sectionfont}}
+                {\reset@font\normalsize\sffamily\bfseries\hci@sectionfont}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                 {-1.8ex\@plus -1ex \@minus -.2ex}%
                 {0.8ex \@plus .2ex}%
-                {\reset@font\sffamily\normalsize\mmt@sectionfont}}
+                {\reset@font\sffamily\normalsize\hci@sectionfont}}
 
 \renewcommand\paragraph{\@startsection{paragraph}{4}{1em}%
                 {1ex \@plus 1ex \@minus.2ex}%
                 {-1em}%
-                {\reset@font\normalsize\sffamily\mmt@sectionfont}}
+                {\reset@font\normalsize\sffamily\hci@sectionfont}}
 %\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
 %                {3.25ex \@plus1ex \@minus.2ex}%
 %                {-1em}%
-%                {\reset@font\normalsize\sffamily\bfseries\mmt@sectionfont}}
+%                {\reset@font\normalsize\sffamily\bfseries\hci@sectionfont}}
 
 \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
                 {3.25ex \@plus1ex \@minus .2ex}%
                 {-1em}%
-                {\reset@font\normalsize\sffamily\bfseries\mmt@sectionfont}}
+                {\reset@font\normalsize\sffamily\bfseries\hci@sectionfont}}
 
-\ifmmt@wide\else
+\ifhci@wide\else
 %% make captionfont 8pt
   \newcommand{\captionfonts}{\scriptsize\sffamily}
   
   \long\def\@makecaption#1#2{%
     \vskip\abovecaptionskip
-    \sbox\@tempboxa{\captionfonts #1\ifmmtpaper. \else: \fi #2}%
+    \sbox\@tempboxa{\captionfonts #1\ifhcipaper. \else: \fi #2}%
     \ifdim \wd\@tempboxa >\hsize
-      {\captionfonts #1\ifmmtpaper. \else: \fi #2\par}
+      {\captionfonts #1\ifhcipaper. \else: \fi #2\par}
     \else
       \global \@minipagefalse
       \def\@figcaptype{figure}
-      \hb@xt@\hsize{\ifmmtpaper\ifx\@captype\@figcaptype\else\hfil\fi\else\hfil\fi\box\@tempboxa\hfil}%
+      \hb@xt@\hsize{\ifhcipaper\ifx\@captype\@figcaptype\else\hfil\fi\else\hfil\fi\box\@tempboxa\hfil}%
     \fi
     \vskip\belowcaptionskip}
 
@@ -443,34 +443,34 @@
         \endlist}
 \fi
 
-\newcommand{\mmt@empty}{}
+\newcommand{\hci@empty}{}
 
-\newcommand{\mmt@affiliation}{}
-\newcommand{\affiliation}[1]{\renewcommand{\mmt@affiliation}{#1}}
+\newcommand{\hci@affiliation}{}
+\newcommand{\affiliation}[1]{\renewcommand{\hci@affiliation}{#1}}
 
-\newcommand{\mmt@category}{}
-\newcommand{\category}[1]{\renewcommand{\mmt@category}{#1}}
-\newcommand{\mmtcategory}[1]{\category{#1}}
+\newcommand{\hci@category}{}
+\newcommand{\category}[1]{\renewcommand{\hci@category}{#1}}
+\newcommand{\hcicategory}[1]{\category{#1}}
 
-%\newcommand{\mmt@format}{}
-%\newcommand{\format}[1]{\renewcommand{\mmt@format}{#1}}
-%\newcommand{\mmtformat}[1]{\format{#1}}
-\newcommand{\mmtformat}[1]
+%\newcommand{\hci@format}{}
+%\newcommand{\format}[1]{\renewcommand{\hci@format}{#1}}
+%\newcommand{\hciformat}[1]{\format{#1}}
+\newcommand{\hciformat}[1]
 {\@latex@warning{Format specification no longer required.}}
 
-\newcommand{\mmt@teaser}{}
-\newcommand{\teaser}[1]{\renewcommand{\mmt@teaser}{#1}}
+\newcommand{\hci@teaser}{}
+\newcommand{\teaser}[1]{\renewcommand{\hci@teaser}{#1}}
 
-\newcommand{\mmt@keywords}{}
-\newcommand{\keywords}[1]{\renewcommand{\mmt@keywords}{#1}}
+\newcommand{\hci@keywords}{}
+\newcommand{\keywords}[1]{\renewcommand{\hci@keywords}{#1}}
 
-\newcommand{\mmt@indexterms}{}
-\newcommand{\CCScatlist}[1]{\renewcommand{\mmt@indexterms}{#1}}
+\newcommand{\hci@indexterms}{}
+\newcommand{\CCScatlist}[1]{\renewcommand{\hci@indexterms}{#1}}
 
 \newcommand{\CCScat}[4]{%
      #1 [#2]%
-     \ifx#3\mmt@empty \else : #3\fi%
-     \ifx#4\mmt@empty \else ---#4\fi%
+     \ifx#3\hci@empty \else : #3\fi%
+     \ifx#4\hci@empty \else ---#4\fi%
 }
 
 \newlength{\titlespace}
@@ -485,101 +485,101 @@
 \renewcommand{\@maketitle}{%
 
     \begin{center}%
-        {\sffamily\ifmmtpaper\huge\else\LARGE\bfseries\fi%
-      \mmt@sectionfont%
+        {\sffamily\ifhcipaper\huge\else\LARGE\bfseries\fi%
+      \hci@sectionfont%
       \@title \par}%
-        \ifmmtpaper%
+        \ifhcipaper%
           %\vspace{2\baselineskip}%
           \vspace{14pt}%
         \else%
     \vspace{1\baselineskip}\fi%
-        \large\sffamily\mmt@sectionfont 
+        \large\sffamily\hci@sectionfont 
         \begin{tabular}[t]{c}%
             \@author
         \end{tabular}%
-        \ifx\mmt@affiliation\mmt@empty \else%
+        \ifx\hci@affiliation\hci@empty \else%
             \par\vspace{1\baselineskip}%
-            \mmt@affiliation\par%
+            \hci@affiliation\par%
         \fi%
-       \ifmmtpaper\vspace{0.08in}\else\vspace{\titlespace}\fi%
-        \ifx\mmt@teaser\mmt@empty \else%
+       \ifhcipaper\vspace{0.08in}\else\vspace{\titlespace}\fi%
+        \ifx\hci@teaser\hci@empty \else%
             \begingroup%
                 \def\@captype{figure}%
-                \mmt@teaser%
+                \hci@teaser%
             \endgroup\par%
             \vspace{\teaserspace}%
         \fi%
     \end{center} \par%
     
-%     \ifmmtpaper% journal formatting with double column abstract and teaser
+%     \ifhcipaper% journal formatting with double column abstract and teaser
 %         {\scriptsize\sffamily%\renewcommand{\baselinestretch}{1.1}
 %         \leftskip = 0.33in \rightskip = \leftskip%
-%         \ifx\mmt@abstxt\mmt@empty \else%
+%         \ifx\hci@abstxt\hci@empty \else%
 %              \begingroup%
-%                  {\bfseries Abstract}---\mmt@abstxt%
+%                  {\bfseries Abstract}---\hci@abstxt%
 %              \endgroup\par%
 %          \fi%
-%          \ifx\mmt@keywords\mmt@empty \else%
+%          \ifx\hci@keywords\hci@empty \else%
 %              \begingroup%
-%                  %{\normalsize\mmt@absfont {\bfseries Keywords - } \mmt@keywords}%
+%                  %{\normalsize\hci@absfont {\bfseries Keywords - } \hci@keywords}%
 %                  \vspace{0.5\baselineskip}%
-%                  \par\noindent \textbf{Index Terms}---\mmt@keywords%
+%                  \par\noindent \textbf{Index Terms}---\hci@keywords%
 %              \endgroup\par%
 %          \fi%
-% %%          \ifx\mmt@indexterms\mmt@empty \else%
+% %%          \ifx\hci@indexterms\hci@empty \else%
 % %%              \begingroup%
-% %%      %            {\normalsize\mmt@absfont {\bfseries Index Terms - } %
-% %%      %             \mmt@indexterms}%
+% %%      %            {\normalsize\hci@absfont {\bfseries Index Terms - } %
+% %%      %             \hci@indexterms}%
 % %%                  \vspace{0.5\baselineskip}%
-% %%                  \par\noindent \textbf{Index Terms -} \mmt@indexterms%
+% %%                  \par\noindent \textbf{Index Terms -} \hci@indexterms%
 % %%              \endgroup\par%
 % %%          \fi%
 %          }%
 % 	\begin{center}\includegraphics{diamondrule.eps}\end{center}
 %         %\vspace{\abstxtspace}%
-% 	\ifx\firstsectiontxt\mmt@empty \else
+% 	\ifx\firstsectiontxt\hci@empty \else
 % 	  \section{\firstsectiontxt}
 % 	\fi
 %      \fi%
 }
 
-\let\mmt@origmaketitle\maketitle
-\let\mmt@origand\and
+\let\hci@origmaketitle\maketitle
+\let\hci@origand\and
 \renewcommand{\maketitle}{%
-    \let\mmt@title\@title%
-    \let\mmt@author\@author%
-    \mmt@origmaketitle%
+    \let\hci@title\@title%
+    \let\hci@author\@author%
+    \hci@origmaketitle%
     \thispagestyle{empty}%
-    \ifmmt@doublespaced%
+    \ifhci@doublespaced%
         \renewcommand{\baselinestretch}{1.66}\selectfont%
     \fi%
-    \ifmmtpaper        
-        \ifx\mmt@abstxt\mmt@empty \else%
+    \ifhcipaper        
+        \ifx\hci@abstxt\hci@empty \else%
              \begingroup%
-                 \begin{origabstract} \mmt@abstxt \end{origabstract} %
+                 \begin{origabstract} \hci@abstxt \end{origabstract} %
              \endgroup\par%
              %\vspace{\abstxtspace}%
          \fi%
-         \ifx\mmt@keywords\mmt@empty \else%
+         \ifx\hci@keywords\hci@empty \else%
              \begingroup%
-                 %{\normalsize\mmt@absfont {\bfseries Keywords - } \mmt@keywords}%
+                 %{\normalsize\hci@absfont {\bfseries Keywords - } \hci@keywords}%
                  \vspace{0.5\baselineskip}%
-                 \par\noindent \textbf{Keywords: } \mmt@keywords%
+                 \par\noindent \textbf{Keywords: } \hci@keywords%
              \endgroup\par%
              %\vspace{\abstxtspace}%
          \fi%
-         \ifx\mmt@indexterms\mmt@empty \else%
+         \ifx\hci@indexterms\hci@empty \else%
              \begingroup%
-     %            {\normalsize\mmt@absfont {\bfseries Index Terms - } %
-     %             \mmt@indexterms}%
+     %            {\normalsize\hci@absfont {\bfseries Index Terms - } %
+     %             \hci@indexterms}%
                  \vspace{0.5\baselineskip}%
-                 \par\noindent \textbf{Index Terms:} \mmt@indexterms%
+                 \par\noindent \textbf{Index Terms:} \hci@indexterms%
              \endgroup\par%
              %\vspace{\abstxtspace}%
          \fi%
      \fi%
-     \ifx\firstsectiontxt\mmt@empty \else
-       \ifmmtpaper
+     \ifx\firstsectiontxt\hci@empty \else
+       \ifhcipaper
          \section*{}
          \vskip -1.5em
        \else
@@ -600,13 +600,13 @@
 \fi % formatting only for paper format
 
 % a check to determine the columnmode
-\newif\ifmmttwocolumn
-\@ifclasswith{article}{twocolumn}{\mmttwocolumntrue}{\mmttwocolumnfalse}
-\newcommand{\mmtcolumnmode}{\ifmmttwocolumn 
+\newif\ifhcitwocolumn
+\@ifclasswith{article}{twocolumn}{\hcitwocolumntrue}{\hcitwocolumnfalse}
+\newcommand{\hcicolumnmode}{\ifhcitwocolumn 
     \twocolumn
 \else
     \onecolumn
 \fi}
 
-% End of file 'mmt_bachelor.cls'.
+% End of file 'hci_bachelor.cls'.
 

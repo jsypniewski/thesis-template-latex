@@ -2,10 +2,10 @@
 % generated text is translated accordingly.
 % use \selectthesislanguage in body.tex to switch to default language
 
-%\documentclass[ngerman, paper]{mmt} % use for seminar paper
-%\documentclass[ngerman, reviewversion]{mmt} % use for anonymized review version 
-%\documentclass[ngerman, bachelorthesis]{mmt} % use for Bachelor thesis
-\documentclass[ngerman, masterthesis]{mmt} % use for Master thesis
+%\documentclass[ngerman, paper]{hci} % use for seminar paper
+%\documentclass[ngerman, reviewversion]{hci} % use for anonymized review version 
+%\documentclass[ngerman, bachelorthesis]{hci} % use for Bachelor thesis
+\documentclass[english, masterthesis]{hci} % use for Master thesis
 
 \usepackage{mathptmx}
 \usepackage{graphicx}
@@ -109,7 +109,7 @@
 
 %% Author 
 \author{ \authorname\\ \scriptsize \authormail \\ \scriptsize 
-\ifmmtlanguagegerman FH Salzburg \else Salzburg University of Applied Sciences \fi
+\ifhcilanguagegerman FH Salzburg \else Salzburg University of Applied Sciences \fi
 }
 
 %% A teaser figure can be included as follows, but is not recommended since
@@ -121,7 +121,7 @@
 
 %% Abstract section for paper format.
 \abstract{
-    \ifmmtlanguagegerman 
+    \ifhcilanguagegerman 
         \selectlanguage{ngerman}
         \input{kurzfassung}
     \else 
@@ -141,7 +141,7 @@
 \pagenumbering{gobble}
 
  % group open
-\ifmmtpaper
+\ifhcipaper
     \begingroup 
     % is required because paper template messes with sizes
     \fontsize{12}{18}\selectfont        
@@ -150,7 +150,7 @@
     \sectionfont{\fontsize{14}{15}\selectfont}
 \fi
 
-\ifmmtreviewversion
+\ifhcireviewversion
     \titlename
 \else
     \input{title}       
@@ -160,26 +160,26 @@
     
     \pagenumbering{roman}
     
-\ifmmtpaper % does not need affidavit
-\else \ifmmtreviewversion
+\ifhcipaper % does not need affidavit
+\else \ifhcireviewversion
       \else
         \newpage
         \input{affidavit}  % comment out for expose
       \fi
 \fi
 % group closing
-\ifmmtpaper
+\ifhcipaper
 \endgroup
 \fi
 
 
-\ifmmtpaper \else  % paper does not need this stuff
+\ifhcipaper \else  % paper does not need this stuff
     
     \newpage
     \selectlanguage{ngerman}
-    \section*{Kurzfassung}
+    \section*{Zusammenfassung}
     \input{kurzfassung}
-    \ifmmtmasterthesis
+    \ifhcimasterthesis
     
     \vspace*{0.5cm} 
     \textbf{Schlüsselwörter:~} \keywordsgerman
@@ -188,7 +188,7 @@
     \selectlanguage{english}
     \section*{Abstract}
     \input{abstract}
-    \ifmmtmasterthesis
+    \ifhcimasterthesis
         
     \vspace*{0.5cm} 
     \textbf{Keywords:~} \keywordsenglish
@@ -206,11 +206,11 @@
 \fi
 
 
-\mmtcolumnmode % switch back to column formatting of stylesheet
+\hcicolumnmode % switch back to column formatting of stylesheet
 
 \maketitle % used for paper formatting
 
-\ifmmtpaper\else
+\ifhcipaper\else
 \pagestyle{headings}
 \fi
 \pagenumbering{arabic}
@@ -220,7 +220,7 @@
 
 %\input{acknowledgements}
 
-\ifmmtpaper
+\ifhcipaper
 
 \printbibliography
 
@@ -233,7 +233,7 @@
 
 
  % group open
-\ifmmtpaper 
+\ifhcipaper 
 \begingroup 
     % is required because paper template messes with sizes
     \fontsize{12}{18}\selectfont        
@@ -242,7 +242,7 @@
     \sectionfont{\fontsize{14}{15}\selectfont}
 \fi
 
-\ifmmtpaper\else % nicht im paper
+\ifhcipaper\else % nicht im paper
 
 \newpage
 \onecolumn

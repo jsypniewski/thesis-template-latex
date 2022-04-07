@@ -3,18 +3,18 @@
 % check if second advisor exists
 \newcommand{\printsecondadvisor}[1]{%
   \ifcsname#1\endcsname%
-  \ifmmtlanguagegerman ZweitbetreuerIn: \else Second Advisor: \fi \secondadvisor 
+  \ifhcilanguagegerman ZweitbetreuerIn: \else Second Advisor: \fi \secondadvisor 
   \else%
     
   \fi%
 }
 
-\ifmmtmasterthesis
+\ifhcimasterthesis
 
     
     % \begin{center}
     %     \Huge{ 
-    %     	\textbf{\ifmmtlanguagegerman Masterarbeit \else Master Thesis \fi}
+    %     	\textbf{\ifhcilanguagegerman Masterarbeit \else Master Thesis \fi}
     %     }
     % \end{center}
     
@@ -31,7 +31,7 @@
     
     \vspace*{1cm}
     
-    \ifmmtlanguagegerman
+    \ifhcilanguagegerman
     Masterarbeit zur Erlangung des akademischen Grades
     \else
     Master thesis in partial fulfilment of the requirements for\\ the degree of 
@@ -45,12 +45,12 @@
     
     \vspace*{1.5cm}
     {\large
-    \ifmmtlanguagegerman AutorIn: \else Author: \fi \authorname
+    \ifhcilanguagegerman AutorIn: \else Author: \fi \authorname
     }
     \vfill
     
     {\normalsize
-    \ifmmtlanguagegerman
+    \ifhcilanguagegerman
     Vorgelegt am FH-Masterstudiengang MultiMediaTechnology, Fachhochschule Salzburg
     \else
     Submitted to the Master degree program MultiMediaTechnology, Salzburg University of Applied Sciences
@@ -59,14 +59,14 @@
     
     \vspace*{1cm}
     
-    \ifmmtlanguagegerman BetreuerIn: \else Advisor: \fi
+    \ifhcilanguagegerman BetreuerIn: \else Advisor: \fi
     \advisor
     \\    
     \printsecondadvisor{secondadvisor}
     
     \vfill
     
-    Salzburg, \ifmmtlanguagegerman Österreich, \else Austria, \fi  \thesisdate
+    Salzburg, \ifhcilanguagegerman Österreich, \else Austria, \fi  \thesisdate
     }
 
 \else % Bachelor thesis title page
@@ -87,10 +87,10 @@
     \vspace*{4cm}
     
     \fontsize{20.79}{18pt}{%\large{
-    \ifmmtlanguagegerman
-      \textbf{ \ifmmtpaper Seminararbeit \else Bachelorarbeit \fi }
+    \ifhcilanguagegerman
+      \textbf{ \ifhcipaper Seminararbeit \else Bachelorarbeit \fi }
     \else
-        \textbf{ \ifmmtpaper Seminararbeit \else Bachelor Thesis \fi }
+        \textbf{ \ifhcipaper Seminararbeit \else Bachelor Thesis \fi }
     \fi
     }
     
@@ -100,12 +100,12 @@
     \vfill
     
     %\begin{tabular}{ll}
-    \ifmmtlanguagegerman AutorIn: \else Author: \fi  \authorname  \\
-    \ifmmtlanguagegerman BetreuerIn: \else Advisor: \fi \advisor \\
+    \ifhcilanguagegerman AutorIn: \else Author: \fi  \authorname  \\
+    \ifhcilanguagegerman BetreuerIn: \else Advisor: \fi \advisor \\
     Repository: \thesisrepo \\
     \printsecondadvisor{secondadvisor}
     
-    Salzburg, \ifmmtlanguagegerman Österreich, \else Austria, \fi \thesisdate
+    Salzburg, \ifhcilanguagegerman Österreich, \else Austria, \fi \thesisdate
     
     
     
