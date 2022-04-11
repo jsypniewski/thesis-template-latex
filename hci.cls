@@ -39,6 +39,7 @@
 %     - correction if '\ifcamera' and '\ifcameraelse' commands
 %     - page numbering in both review and preprint modes
 %     have been made.
+% - The current version of the template is based on the MMT thesis template 
 
 % ------------ identification --------------
 \NeedsTeXFormat{LaTeX2e}

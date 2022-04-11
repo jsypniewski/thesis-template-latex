@@ -95,7 +95,8 @@
    captionpos=b
 }
 
-\usepackage[authordate,bibencoding=auto,strict,noibid,backend=biber]{biblatex-chicago}
+%\usepackage[authordate,bibencoding=auto,strict,noibid,backend=biber]{biblatex}
+\usepackage[bibencoding=auto,backend=biber]{biblatex}
 \bibliography{bibliography}
 
 %% Add configuration options
@@ -182,7 +183,7 @@
     \ifhcimasterthesis
     
     \vspace*{0.5cm} 
-    \textbf{Schlüsselwörter:~} \keywordsgerman
+ %   \textbf{Schlüsselwörter:~} \keywordsgerman
     \fi
     \newpage
     \selectlanguage{english}
@@ -191,7 +192,7 @@
     \ifhcimasterthesis
         
     \vspace*{0.5cm} 
-    \textbf{Keywords:~} \keywordsenglish
+%    \textbf{Keywords:~} \keywordsenglish
     \fi
     \selectthesislanguage
     
@@ -200,8 +201,10 @@
     
     \newpage
     \listoffigures
-    \lstlistoflistings
     \listoftables
+    
+    \newpage
+    \input{abbreviations}
     
 \fi
 
