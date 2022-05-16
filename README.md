@@ -16,7 +16,7 @@ To switch the language of the document go to the top of main.tex and change the 
 * `english` 
 * `ngerman`
 
-The document adapts text of the title page, affidavit (Declaration on Oath) and references according to the language chosen.
+The document adapts text of the title page, affidavit and references according to the language chosen.
 
 
 Files to change for your paper:

@@ -95,8 +95,7 @@
    captionpos=b
 }
 
-%\usepackage[authordate,bibencoding=auto,strict,noibid,backend=biber]{biblatex}
-\usepackage[bibencoding=auto,backend=biber]{biblatex}
+\usepackage[authordate,bibencoding=auto,strict,noibid,backend=biber]{biblatex-chicago}
 \bibliography{bibliography}
 
 %% Add configuration options
@@ -183,7 +182,7 @@
     \ifhcimasterthesis
     
     \vspace*{0.5cm} 
- %   \textbf{Schlüsselwörter:~} \keywordsgerman
+    \textbf{Schlüsselwörter:~} \keywordsgerman
     \fi
     \newpage
     \selectlanguage{english}
@@ -192,7 +191,7 @@
     \ifhcimasterthesis
         
     \vspace*{0.5cm} 
-%    \textbf{Keywords:~} \keywordsenglish
+    \textbf{Keywords:~} \keywordsenglish
     \fi
     \selectthesislanguage
     
@@ -201,10 +200,8 @@
     
     \newpage
     \listoffigures
+    \lstlistoflistings
     \listoftables
-    
-    \newpage
-    \input{abbreviations}
     
 \fi
 
@@ -219,7 +216,8 @@
 \pagenumbering{arabic}
 
 
-\input{body} % the main text
+\input{body}
+
 
 %\input{acknowledgements}
 
@@ -259,6 +257,7 @@
 This work has the following word count (counted by texcount): 
 %TC:ignore
 \detailtexcount{body}
+
 %TC:endignore
 
 \end{document}
